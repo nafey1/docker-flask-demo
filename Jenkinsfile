@@ -20,6 +20,11 @@ pipeline {
                 sh 'docker push nafey1/flaskapp:$BUILD_NUMBER'
             }
         }
+        stage('deploy image') {
+            steps{
+                sh 'kubectl get nodes'
+            }
+        }        
 }
 post {
         always {
