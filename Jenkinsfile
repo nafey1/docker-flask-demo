@@ -17,7 +17,7 @@ pipeline {
         }
         stage('verify image') {
             steps{
-                sh 'docker inspect image nafey1/flaskapp:$BUILD_NUMBER'
+                sh 'docker inspect nafey1/flaskapp:$BUILD_NUMBER'
             }
         }                
         stage('push image') {
