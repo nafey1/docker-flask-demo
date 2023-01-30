@@ -22,7 +22,7 @@ pipeline {
         }
         stage('deploy image') {
             steps{
-                sh 'kubectl get nodes'
+                sh 'kubectl version'
             }
         }        
 }
