@@ -15,16 +15,16 @@ pipeline {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
+        stage('verify image') {
+            steps{
+                sh 'docker inspect image nafey1/flaskapp:$BUILD_NUMBER'
+            }
+        }                
         stage('push image') {
             steps{
                 sh 'docker push nafey1/flaskapp:$BUILD_NUMBER'
             }
         }
-        stage('deploy image') {
-            steps{
-                sh 'kubectl version'
-            }
-        }        
 }
 post {
         always {
